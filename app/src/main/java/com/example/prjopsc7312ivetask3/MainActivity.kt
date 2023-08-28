@@ -21,8 +21,6 @@ import java.util.Locale
 class MainActivity : AppCompatActivity(), LocationListener {
 
     private lateinit var locationManager : LocationManager
-    private lateinit var tvOutput : TextView
-    private  lateinit var tvAddress: TextView
     private val locationPermissionCode  = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,9 +51,9 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val geocoder = Geocoder(this , Locale.getDefault())
         val addresses = geocoder.getFromLocation(location.latitude , location.longitude, 1)
 
-        tvAddress.text = addresses?.get(0)?.getAddressLine(0)
 
         Log.d(TAG, addresses?.get(0)?.getAddressLine(0).toString())
+        Log.d(TAG, location.latitude.toString() + " " + location.latitude.toString())
 
     }
     override fun onRequestPermissionsResult(

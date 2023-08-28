@@ -16,6 +16,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() , LocationListener {
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() , LocationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val submit: Button = findViewById(R.id.btnShow)
+        val view: RecyclerView = findViewById(R.id.rvView)
+
 
         submit.setOnClickListener(){
             getLocation()

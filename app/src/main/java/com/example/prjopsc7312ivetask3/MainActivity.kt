@@ -18,7 +18,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LocationListener {
 
     private lateinit var locationManager : LocationManager
     private lateinit var tvOutput : TextView
@@ -46,10 +46,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    /*override*/ fun onLocationChanged(location: Location) {
-        tvOutput = findViewById(R.id.lblOutput)
-        tvAddress = findViewById(R.id.txtAddress)
-        tvOutput.text = "Latitude: " + location.latitude + ", Longitude: " + location.longitude
+
+    override fun onLocationChanged(location: Location) {
+
 
         val geocoder = Geocoder(this , Locale.getDefault())
         val addresses = geocoder.getFromLocation(location.latitude , location.longitude, 1)
